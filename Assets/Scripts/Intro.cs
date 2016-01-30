@@ -14,7 +14,10 @@ public class Intro : MonoBehaviour
     public float CultistSpeed = 4;
     public Transform Door;
 
+    public Transform[] Pillars;
+
     float defWalkSpeed;
+    int pillarsDone = 0;
 
     [System.Serializable]
     public class SpeechSequence
@@ -49,6 +52,18 @@ public class Intro : MonoBehaviour
         StartCoroutine(Seq2());
     }
 
+    public void PlaceSkullOnPillar()
+    {
+        ++pillarsDone;
+
+        StartCoroutine(MovePillars());
+
+        if (pillarsDone == Pillars.Length)
+        {
+            //...
+        }
+    }
+
     IEnumerator Seq2()
     {
         foreach (SpeechSequence seq in Sequence2)
@@ -69,7 +84,6 @@ public class Intro : MonoBehaviour
                 if (Vector3.SqrMagnitude(Door.position - tr.position) > 0.1f)
                 {
                     tr.position = tr.position + (Door.position - tr.position).normalized * Time.deltaTime * CultistSpeed;
-                    //tr.position = Vector3.MoveTowards(tr.position, Door.position, Time.deltaTime * CultistSpeed);
                 }
                 else
                 {
@@ -82,6 +96,21 @@ public class Intro : MonoBehaviour
 
             if (reached == Cultists.Length)
                 break;
+        }
+    }
+
+    IEnumerator MovePillars()
+    {
+        float duration = 1f;
+        float movement = 0.22f;
+
+        float startTime = Time.time;
+        while ((Time.time - startTime) < duration)
+        {
+            foreach (Transform tr in Pillars)
+                tr.position += new Vector3(0, -1f, 0) * Time.deltaTime * (movement / duration);
+
+            yield return null;
         }
     }
 

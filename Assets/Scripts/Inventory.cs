@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     public AudioClip PickupSound;
     public AudioClip CombineSound;
     public GameObject HandIcon;
+    public Camera Cam;
 
     Pickup leftHand, rightHand;
     Usable lookAt = null;
@@ -18,7 +19,9 @@ public class Inventory : MonoBehaviour
         // Raycast every frame for items
         RaycastHit hit;
         lookAt = null;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0)), out hit, 1.5f))
+        Ray ray = new Ray(Cam.transform.position, Cam.transform.TransformDirection(0f, 0f, 1f));
+        //Debug.DrawRay(ray.origin, ray.direction, Color.yellow, 10f);
+        if (Physics.Raycast(ray, out hit, 1.5f))
             lookAt = hit.collider.GetComponent<Usable>();
 
         // UI icon
@@ -79,7 +82,54 @@ public class Inventory : MonoBehaviour
         // Right hand
         if (Input.GetMouseButtonDown(1))
         {
-            
+            // Pick up stuff
+            if ((lookAt != null) && (lookAt.Item != null))
+            {
+                if ((rightHand == null) && (lookAt != null) && (lookAt.Item != null))
+                {
+                    Audio.PlayOneShot(PickupSound);
+                    rightHand = lookAt.Item;
+                    rightOriginalScale = lookAt.Item.transform.localScale;
+                    Rigidbody rb = lookAt.Item.GetComponent<Rigidbody>();
+                    if (rb != null)
+                        rb.isKinematic = true;
+                    lookAt.Item.transform.SetParent(RightHandContainer);
+                    lookAt.Item.transform.localPosition = Vector3.zero;
+                    lookAt.Item.transform.localRotation = Quaternion.identity;
+                }
+            }
+
+            // Activate trigger
+            if ((lookAt != null) && (lookAt.Trigger != null))
+            {
+                if (string.IsNullOrEmpty(lookAt.NeedsItem) || ((rightHand != null) && (string.Compare(rightHand.Item, lookAt.NeedsItem) == 0)))
+                {
+                    lookAt.Trigger.Invoke();
+                    if (lookAt.ConsumesItem)
+                        Destroy(rightHand.gameObject);
+
+                    if (lookAt.OneTime)
+                    {
+                        Destroy(lookAt);
+                        lookAt = null;
+                    }
+                }
+            }
+
+            // Throw what's in out hands
+            if ((rightHand != null) && (lookAt == null))
+            {
+                rightHand.transform.SetParent(null);
+                rightHand.transform.localScale = rightOriginalScale;
+                Rigidbody rb = rightHand.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = false;
+                    rb.velocity = GetComponentInParent<Rigidbody>().velocity;
+                }
+
+                rightHand = null;
+            }
         }
         // Combine
         if (Input.GetMouseButtonDown(2))
