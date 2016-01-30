@@ -63,10 +63,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             RotateView();
             // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump)
+            /*if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+            }*/
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
@@ -145,18 +145,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
-                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
-                             Time.fixedDeltaTime;
+                if (!m_AudioSource.isPlaying)
+                {
+                    m_AudioSource.clip = m_FootstepSounds[0];
+                    m_AudioSource.Play();
+                }
             }
-
-            if (!(m_StepCycle > m_NextStep))
+            else
             {
-                return;
+                if (m_AudioSource.isPlaying)
+                    m_AudioSource.Stop();
             }
-
-            m_NextStep = m_StepCycle + m_StepInterval;
-
-            PlayFootStepAudio();
         }
 
 
