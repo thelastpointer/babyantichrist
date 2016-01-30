@@ -17,12 +17,20 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         // Raycast every frame for items
-        RaycastHit hit;
         lookAt = null;
         Ray ray = new Ray(Cam.transform.position, Cam.transform.TransformDirection(0f, 0f, 1f));
-        //Debug.DrawRay(ray.origin, ray.direction, Color.yellow, 10f);
-        if (Physics.Raycast(ray, out hit, 1.5f))
-            lookAt = hit.collider.GetComponent<Usable>();
+        Debug.DrawRay(ray.origin, ray.direction, Color.yellow, 1.5f);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 1.5f);
+        foreach (RaycastHit hit in hits)
+        {
+            Usable u = hit.collider.GetComponent<Usable>();
+            if (u != null)
+            {
+                lookAt = u;
+                break;
+            }
+        }
+        //if (Physics.Raycast(ray, out hit, 1.5f)) lookAt = hit.collider.GetComponent<Usable>();
 
         // UI icon
         HandIcon.SetActive(lookAt != null);
