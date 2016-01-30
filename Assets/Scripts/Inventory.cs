@@ -34,13 +34,13 @@ public class Inventory : MonoBehaviour
                 {
                     Audio.PlayOneShot(PickupSound);
                     leftHand = lookAt.Item;
-                    leftOriginalScale = lookAt.transform.localScale;
-                    Rigidbody rb = lookAt.GetComponent<Rigidbody>();
+                    leftOriginalScale = lookAt.Item.transform.localScale;
+                    Rigidbody rb = lookAt.Item.GetComponent<Rigidbody>();
                     if (rb != null)
                         rb.isKinematic = true;
-                    lookAt.transform.SetParent(LeftHandContainer);
-                    lookAt.transform.localPosition = Vector3.zero;
-                    lookAt.transform.localRotation = Quaternion.identity;
+                    lookAt.Item.transform.SetParent(LeftHandContainer);
+                    lookAt.Item.transform.localPosition = Vector3.zero;
+                    lookAt.Item.transform.localRotation = Quaternion.identity;
                 }
             }
 
@@ -52,6 +52,12 @@ public class Inventory : MonoBehaviour
                     lookAt.Trigger.Invoke();
                     if (lookAt.ConsumesItem)
                         Destroy(leftHand.gameObject);
+
+                    if (lookAt.OneTime)
+                    {
+                        Destroy(lookAt);
+                        lookAt = null;
+                    }
                 }
             }
             

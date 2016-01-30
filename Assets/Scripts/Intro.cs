@@ -10,6 +10,10 @@ public class Intro : MonoBehaviour
     public SpeechSequence[] Sequence2;
     public float DisableControlsForSeconds;
 
+    public Transform[] Cultists;
+    public float CultistSpeed = 4;
+    public Transform Door;
+
     float defWalkSpeed;
 
     [System.Serializable]
@@ -56,7 +60,29 @@ public class Intro : MonoBehaviour
 
         SpeechBubble.SetActive(false);
 
-        // TODO: Send dudes out the door
+        // Send dudes out the door
+        for (;;)
+        {
+            int reached = 0;
+            foreach (Transform tr in Cultists)
+            {
+                if (Vector3.SqrMagnitude(Door.position - tr.position) > 0.1f)
+                {
+                    tr.position = tr.position + (Door.position - tr.position).normalized * Time.deltaTime * CultistSpeed;
+                    //tr.position = Vector3.MoveTowards(tr.position, Door.position, Time.deltaTime * CultistSpeed);
+                }
+                else
+                {
+                    tr.gameObject.SetActive(false);
+                    ++reached;
+                }
+            }
+
+            yield return null;
+
+            if (reached == Cultists.Length)
+                break;
+        }
     }
 
     void EnableControls()
