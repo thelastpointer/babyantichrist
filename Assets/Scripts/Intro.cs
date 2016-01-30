@@ -37,6 +37,7 @@ public class Intro : MonoBehaviour
             SpeechText.text = seq.Text;
             yield return new WaitForSeconds(seq.Time);
         }
+        SpeechBubble.SetActive(false);
     }
 
     public void PlaySequence2()
@@ -52,6 +53,10 @@ public class Intro : MonoBehaviour
             SpeechText.text = seq.Text;
             yield return new WaitForSeconds(seq.Time);
         }
+
+        SpeechBubble.SetActive(false);
+
+        // TODO: Send dudes out the door
     }
 
     void EnableControls()

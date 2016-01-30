@@ -992,9 +992,9 @@ MonoBehaviour:
     Time: 3
   - Text: 'Jeff: The one we used to prank Isiah by making the child he wanted for
       years into an adult, thus robbing him of the joy of fatherhood?'
-    Time: 4
+    Time: 3
   - Text: "Ezekiel: I still can\u2019t stop laughing."
-    Time: 5
+    Time: 2
   - Text: "Jeff: It\u2019s between the sacrificial altar and the foosball table on
       the shelf. Can we go eat first?"
     Time: 3
@@ -1566,6 +1566,10 @@ Prefab:
     - target: {fileID: 406150, guid: 4dc17efab47f5cc4b8a30eb2296cddd4, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 159810, guid: 4dc17efab47f5cc4b8a30eb2296cddd4, type: 2}
+      propertyPath: m_Name
+      value: Pickup-bone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4dc17efab47f5cc4b8a30eb2296cddd4, type: 2}

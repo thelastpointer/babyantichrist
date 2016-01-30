@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         // Raycast every frame for items
         RaycastHit hit;
         lookAt = null;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0)), out hit, 1.5f, 1 << LayerMask.NameToLayer("Item")))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0)), out hit, 1.5f))
             lookAt = hit.collider.GetComponent<Usable>();
 
         // UI icon
@@ -43,16 +43,15 @@ public class Inventory : MonoBehaviour
                     lookAt.transform.localRotation = Quaternion.identity;
                 }
             }
+
             // Activate trigger
             if ((lookAt != null) && (lookAt.Trigger != null))
             {
-                if (!string.IsNullOrEmpty(lookAt.NeedsItem) && (string.Compare(leftHand.Item, lookAt.NeedsItem) == 0))
+                if (string.IsNullOrEmpty(lookAt.NeedsItem) || ((leftHand != null) && (string.Compare(leftHand.Item, lookAt.NeedsItem) == 0)))
                 {
                     lookAt.Trigger.Invoke();
                     if (lookAt.ConsumesItem)
-                    {
                         Destroy(leftHand.gameObject);
-                    }
                 }
             }
             
