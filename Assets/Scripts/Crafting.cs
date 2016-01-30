@@ -35,8 +35,6 @@ public class Crafting : MonoBehaviour
     {
         foreach (Recipe r in Recipes)
         {
-            Debug.LogFormat("{0}-{1} compared to {2}-{3}", item1, item2, r.Item1, r.Item2);
-
             // Ignore order and case
             if ((string.Compare(item1, r.Item1, true) == 0) && (string.Compare(item2, r.Item2, true) == 0))
                 return r.Result;
