@@ -10,6 +10,9 @@ public class Intro : MonoBehaviour
     public SpeechSequence[] Sequence1;
     public SpeechSequence[] Sequence2;
     public SpeechSequence[] Sequence3;
+    public SpeechSequence[] Sequence4JeffSobbing;
+    public SpeechSequence[] Sequence5Potions;
+    public SpeechSequence[] Sequence6JeffGoat;
     public float DisableControlsForSeconds;
 
     public Transform[] Cultists;
