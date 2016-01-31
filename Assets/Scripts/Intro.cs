@@ -49,6 +49,11 @@ public class Intro : MonoBehaviour
         Invoke("EnableControls", DisableControlsForSeconds);
     }
 
+    public void PlayEnding()
+    {
+        //....
+    }
+
     IEnumerator IntroSeq()
     {
         foreach (SpeechSequence seq in Sequence1)
