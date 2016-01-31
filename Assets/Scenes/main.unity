@@ -8968,17 +8968,23 @@ MonoBehaviour:
   Sequence4JeffSobbing:
   - Text: "Jeff: It\u2019s going to be okay Munchikins. You\u2019ll have all the \u2026
       *incoherent sobbing*, all the *sobbing* all the lettuce you want from today."
-    Time: 2
+    Time: 5
+  - Text: 'Jeff: Munchikins is my best friend. I watched him grow up, he would always
+      listen to me'
+    Time: 4
+  - Text: "Jeff:  In a couple of minutes they\u2019ll finish their preparations and
+      \u2026 and\u2026 and *sobbing* "
+    Time: 4
   Sequence5Potions:
-  - Text: potion1 bad
-    Time: 1
-  - Text: potion2 bad
-    Time: 1
-  - Text: potion3 GOOD
-    Time: 1
+  - Text: Ew, this is raw bat bile
+    Time: 2
+  - Text: Ew, this is vinegar mixed with milk and pee
+    Time: 2
+  - Text: Ew, this is Propylene Glycol Algonate
+    Time: 2
   Sequence6JeffGoat:
-  - Text: 'Jeff: Thank you, thank you. Let me give you some of my eye rain.'
-    Time: 3
+  - Text: 'Jeff: Thank you, thank you. Let me give you some of my eye rain!'
+    Time: 2
   BringMePotion:
     Text: Jeff, could you bring me a jar of blood?
     Time: 2
