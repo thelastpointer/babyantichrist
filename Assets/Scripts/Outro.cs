@@ -35,6 +35,9 @@ public class Outro : MonoBehaviour {
             yield return new WaitForSeconds(seq.Time);
         }
 
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         isDone = true;
     }
 }
