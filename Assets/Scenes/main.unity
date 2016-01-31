@@ -847,17 +847,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Trigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1104328383}
+        m_MethodName: PlaySequence4JeffSobbing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   Item: {fileID: 0}
-  NeedsItem: 
-  ConsumesItem: 0
-  OneTime: 0
+  NeedsItem: goat
+  ConsumesItem: 1
+  OneTime: 1
   ActivateWhileLookAt: {fileID: 0}
   NoItemTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1104328383}
+        m_MethodName: PlaySequence6JeffGoat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!82 &35624765
@@ -2497,6 +2519,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9139075, y: 1.4224001, z: 0.18965338}
   m_Center: {x: 0.016686797, y: 0.00000023841858, z: 0.09482762}
+--- !u!114 &298346473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298346471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7387adfb35ae29d43ae42d598bf554b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trigger:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  Item: {fileID: 0}
+  NeedsItem: 
+  ConsumesItem: 0
+  OneTime: 0
+  ActivateWhileLookAt: {fileID: 2073934631}
+  NoItemTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &309345081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,57 +3734,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Trigger:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1104328383}
-        m_MethodName: PlaySequence2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 460339190}
-        m_MethodName: Disable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 35624764}
-        m_MethodName: Disable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 516721013}
-        m_MethodName: Disable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   Item: {fileID: 0}
-  NeedsItem: bone
+  NeedsItem: potion
   ConsumesItem: 0
-  OneTime: 1
+  OneTime: 0
   ActivateWhileLookAt: {fileID: 0}
   NoItemTrigger:
     m_PersistentCalls:
@@ -4603,68 +4607,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Trigger:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1104328383}
-        m_MethodName: PlaySequence2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 460339190}
-        m_MethodName: Disable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 35624764}
-        m_MethodName: Disable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 516721013}
-        m_MethodName: Disable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   Item: {fileID: 0}
-  NeedsItem: bone
+  NeedsItem: potion
   ConsumesItem: 0
-  OneTime: 1
+  OneTime: 0
   ActivateWhileLookAt: {fileID: 0}
   NoItemTrigger:
     m_PersistentCalls:
@@ -5118,6 +5067,7 @@ RectTransform:
   - {fileID: 539686875}
   - {fileID: 518120035}
   - {fileID: 1042460640}
+  - {fileID: 2073934632}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -8898,7 +8848,35 @@ MonoBehaviour:
   - Text: 'Ezekiel: Sorry boy, it''s goat day'
     Time: 2
   Sequence3: []
+  Sequence4JeffSobbing:
+  - Text: "Jeff: It\u2019s going to be okay Munchikins. You\u2019ll have all the \u2026
+      *incoherent sobbing*, all the *sobbing* all the lettuce you want from today."
+    Time: 5
+  - Text: 'Jeff: Munchikins is my best friend. I watched him grow up, he would always
+      listen to me'
+    Time: 4
+  - Text: "Jeff:  In a couple of minutes they\u2019ll finish their preparations and
+      \u2026 and\u2026 and *sobbing* "
+    Time: 4
+  Sequence5Potions:
+  - Text: Ew, this is raw bat bile
+    Time: 2
+  - Text: Ew, this is vinegar mixed with milk and pee
+    Time: 2
+  - Text: Ew, this is Propylene Glycol Algonate
+    Time: 2
+  Sequence6JeffGoat:
+  - Text: 'Jeff: Thank you, thank you. Let me give you some of my eye rain.'
+    Time: 2
+  BringMePotion:
+    Text: Jeff, could you bring me a jar of blood?
+    Time: 2
   DisableControlsForSeconds: 6
+  EndingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   Cultists:
   - {fileID: 1610803233}
   - {fileID: 1414307178}
@@ -15745,6 +15723,72 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5738666, y: 1.2598403, z: 1.0601274}
   m_Center: {x: 0, y: 0, z: 0.5300637}
+--- !u!1 &2073934631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2073934632}
+  - 222: {fileID: 2073934634}
+  - 114: {fileID: 2073934633}
+  m_Layer: 5
+  m_Name: Book-lookat2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2073934632
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073934631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 529889563}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000061035156, y: -0.000030517578}
+  m_SizeDelta: {x: 512, y: 512}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2073934633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073934631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: 24719b6584119a143b1bfc252075a50d, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &2073934634
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073934631}
 --- !u!1001 &2083882629
 Prefab:
   m_ObjectHideFlags: 0
