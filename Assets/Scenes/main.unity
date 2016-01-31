@@ -7986,10 +7986,30 @@ MonoBehaviour:
   SpeechBubble: {fileID: 518120034}
   SpeechText: {fileID: 566012847}
   Sequence1:
-  - Text: 'Lazarus: Can you see us?'
+  - Text: 'Ezekiel: What happened?'
+    Time: 1.5
+  - Text: 'Lazarus: Why is it a baby?'
+    Time: 1.5
+  - Text: 'Ezekiel: Jeff? What''s that in your hand?'
+    Time: 2
+  - Text: 'Lazarus: Show it to us!'
+    Time: 2
+  - Text: 'Jeff: I thought it wouldn''t matter if I use baby blood or adult blood'
     Time: 3
-  - Text: 'Ezekiel: Do you want to stay a baby?'
+  - Text: 'Ezekiel: Christ''s sake, I told you we sh...'
+    Time: 1.5
+  - Text: 'Lazarus: Don''t say that name!'
+    Time: 2
+  - Text: 'Ezekiel: I told you we shouldn''t have kept him as a junior monk, he was
+      a bad intern, he sacrificed the workplace puppy'
+    Time: 5
+  - Text: 'Lazarus: There''s no need to hurt his feelings Ezekiel'
     Time: 3
+  - Text: 'Ezekiel: But Lazarus, we had to work for weeks to bring Fluffers back from
+      the dead.'
+    Time: 4
+  - Text: 'Lazarus: Be quiet, look, he''s moving.'
+    Time: 2
   - Text: 'Devil: What did they do to you? Pick that bone up over there and kill them.'
     Time: 4
   Sequence2:
@@ -7999,19 +8019,22 @@ MonoBehaviour:
     Time: 2
   - Text: 'Lazarus: Jeff where did you put the recipe that turns babies into adults?'
     Time: 3
-  - Text: 'Jeff: The one we used to prank Isiah by making the child he wanted for
+  - Text: 'Ezekiel: The one we used to prank Isiah by making the child he wanted for
       years into an adult, thus robbing him of the joy of fatherhood?'
-    Time: 3
-  - Text: "Ezekiel: I still can\u2019t stop laughing."
+    Time: 5
+  - Text: "Lazarus: I still can\u2019t stop laughing."
     Time: 2
-  - Text: "Jeff: It\u2019s between the sacrificial altar and the foosball table on
-      the shelf. Can we go eat first?"
+  - Text: "Ezekiel: It\u2019s in the cabinet next to the foosball table"
     Time: 3
+  - Text: 'Jeff: Can we go eat first?'
+    Time: 1.5
   - Text: "Ezekiel: No you imbec\u2026"
-    Time: 2
+    Time: 1
   - Text: 'Lazarus: Of course we can eat. Is it burrito day already?'
     Time: 2
   - Text: 'Jeff: I want a happy meal.'
+    Time: 2
+  - Text: 'Ezekiel: Sorry boy, it''s goat day'
     Time: 2
   Sequence3: []
   DisableControlsForSeconds: 6
