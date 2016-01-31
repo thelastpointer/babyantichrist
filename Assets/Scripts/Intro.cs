@@ -13,7 +13,9 @@ public class Intro : MonoBehaviour
     public SpeechSequence[] Sequence4JeffSobbing;
     public SpeechSequence[] Sequence5Potions;
     public SpeechSequence[] Sequence6JeffGoat;
+    public SpeechSequence BringMePotion;
     public float DisableControlsForSeconds;
+    public UnityEvent EndingEvent;
 
     public Transform[] Cultists;
     public Transform[] Cultists2;
@@ -27,6 +29,8 @@ public class Intro : MonoBehaviour
 
     float defWalkSpeed;
     int pillarsDone = 0;
+    int ending = 0;
+    int potions = 0;
 
     [System.Serializable]
     public class SpeechSequence
@@ -64,6 +68,18 @@ public class Intro : MonoBehaviour
     {
         StartCoroutine(Seq3());
     }
+    public void PlaySequence4JeffSobbing()
+    {
+        StartCoroutine(_PlaySequence4JeffSobbing());
+    }
+    public void PlaySequence5Potions()
+    {
+        StartCoroutine(_PlaySequence5Potions());
+    }
+    public void PlaySequence6JeffGoat()
+    {
+        StartCoroutine(_PlaySequence6JeffGoat());
+    }
 
     public void PlaceSkullOnPillar()
     {
@@ -74,6 +90,19 @@ public class Intro : MonoBehaviour
         if (pillarsDone == Pillars.Length)
         {
             FirstDoor.Activate();
+        }
+    }
+    public void WantsPotion()
+    {
+        StartCoroutine(_BringMePotion());
+    }
+
+    public void AddEnding()
+    {
+        ++ending;
+        if (ending == 2)
+        {
+            EndingEvent.Invoke();
         }
     }
 
@@ -151,6 +180,53 @@ public class Intro : MonoBehaviour
             if (reached == Cultists2.Length)
                 break;
         }
+    }
+
+    IEnumerator _PlaySequence4JeffSobbing()
+    {
+        foreach (SpeechSequence seq in Sequence4JeffSobbing)
+        {
+            SpeechBubble.SetActive(true);
+            SpeechText.text = seq.Text;
+            yield return new WaitForSeconds(seq.Time);
+        }
+
+        SpeechBubble.SetActive(false);
+    }
+    IEnumerator _PlaySequence5Potions()
+    {
+        SpeechBubble.SetActive(true);
+        SpeechText.text = Sequence5Potions[potions].Text;
+        yield return new WaitForSeconds(Sequence5Potions[potions].Time);
+        SpeechBubble.SetActive(false);
+
+        ++potions;
+
+        if (potions == 3)
+        {
+            AddEnding();
+        }
+    }
+    IEnumerator _PlaySequence6JeffGoat()
+    {
+        foreach (SpeechSequence seq in Sequence6JeffGoat)
+        {
+            SpeechBubble.SetActive(true);
+            SpeechText.text = seq.Text;
+            yield return new WaitForSeconds(seq.Time);
+        }
+
+        SpeechBubble.SetActive(false);
+
+        AddEnding();
+    }
+
+    IEnumerator _BringMePotion()
+    {
+        SpeechBubble.SetActive(true);
+        SpeechText.text = BringMePotion.Text;
+        yield return new WaitForSeconds(BringMePotion.Time);
+        SpeechBubble.SetActive(false);
     }
 
     IEnumerator MovePillars()
