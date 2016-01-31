@@ -14,7 +14,7 @@ public class Fluffers : MonoBehaviour
     {
         StopAllCoroutines();
 
-        Audio.PlayOneShot(AngrySound);
+        Audio.PlayOneShot(HappySound);
         HappyVersion.SetActive(true);
         AngryVersion.SetActive(false);
 

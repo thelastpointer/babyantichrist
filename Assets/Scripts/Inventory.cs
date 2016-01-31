@@ -73,11 +73,28 @@ public class Inventory : MonoBehaviour
             // Activate trigger
             if ((lookAt != null) && (lookAt.Trigger != null))
             {
-                if (string.IsNullOrEmpty(lookAt.NeedsItem) || ((leftHand != null) && (string.Compare(leftHand.Item, lookAt.NeedsItem) == 0)))
+                if (!string.IsNullOrEmpty(lookAt.NeedsItem))
+                {
+                    if ((leftHand != null) && (string.Compare(leftHand.Item, lookAt.NeedsItem) == 0))
+                    {
+                        lookAt.Trigger.Invoke();
+                        if (lookAt.ConsumesItem)
+                            Destroy(leftHand.gameObject);
+
+                        if (lookAt.OneTime)
+                        {
+                            Destroy(lookAt);
+                            lookAt = null;
+                        }
+                    }
+                    else if (lookAt.NoItemTrigger != null)
+                    {
+                        lookAt.NoItemTrigger.Invoke();
+                    }
+                }
+                else
                 {
                     lookAt.Trigger.Invoke();
-                    if (lookAt.ConsumesItem)
-                        Destroy(leftHand.gameObject);
 
                     if (lookAt.OneTime)
                     {

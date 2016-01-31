@@ -10,6 +10,7 @@ public class Usable : MonoBehaviour
     public bool ConsumesItem = false;
     public bool OneTime = true;
     public GameObject ActivateWhileLookAt;
+    public UnityEvent NoItemTrigger;
 
     public void Disable()
     {
