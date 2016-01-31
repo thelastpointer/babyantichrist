@@ -9,6 +9,7 @@ public class Usable : MonoBehaviour
     public string NeedsItem;
     public bool ConsumesItem = false;
     public bool OneTime = true;
+    public GameObject ActivateWhileLookAt;
 
     public void Disable()
     {
