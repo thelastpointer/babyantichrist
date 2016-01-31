@@ -51,7 +51,7 @@ public class Intro : MonoBehaviour
 
     public void PlayEnding()
     {
-        //....
+        UnityEngine.SceneManagement.SceneManager.LoadScene("outro");
     }
 
     IEnumerator IntroSeq()
