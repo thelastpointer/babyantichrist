@@ -9,11 +9,14 @@ public class Intro : MonoBehaviour
     public UnityEngine.UI.Text SpeechText;
     public SpeechSequence[] Sequence1;
     public SpeechSequence[] Sequence2;
+    public SpeechSequence[] Sequence3;
     public float DisableControlsForSeconds;
 
     public Transform[] Cultists;
+    public Transform[] Cultists2;
     public float CultistSpeed = 4;
     public Transform Door;
+    public Transform Door2;
 
     public Transform[] Pillars;
 
@@ -53,6 +56,10 @@ public class Intro : MonoBehaviour
     public void PlaySequence2()
     {
         StartCoroutine(Seq2());
+    }
+    public void PlaySequence3()
+    {
+        StartCoroutine(Seq3());
     }
 
     public void PlaceSkullOnPillar()
@@ -98,6 +105,47 @@ public class Intro : MonoBehaviour
             yield return null;
 
             if (reached == Cultists.Length)
+                break;
+        }
+    }
+
+    IEnumerator Seq3()
+    {
+        Controller.m_WalkSpeed = 0;
+        Controller.m_RunSpeed = 0;
+        
+        foreach (SpeechSequence seq in Sequence3)
+        {
+            SpeechBubble.SetActive(true);
+            SpeechText.text = seq.Text;
+            yield return new WaitForSeconds(seq.Time);
+        }
+
+        SpeechBubble.SetActive(false);
+
+        Controller.m_WalkSpeed = defWalkSpeed;
+        Controller.m_RunSpeed = defWalkSpeed;
+
+        // Send dudes out the door
+        for (;;)
+        {
+            int reached = 0;
+            foreach (Transform tr in Cultists2)
+            {
+                if (Vector3.SqrMagnitude(Door2.position - tr.position) > 0.1f)
+                {
+                    tr.position = tr.position + (Door2.position - tr.position).normalized * Time.deltaTime * CultistSpeed;
+                }
+                else
+                {
+                    tr.gameObject.SetActive(false);
+                    ++reached;
+                }
+            }
+
+            yield return null;
+
+            if (reached == Cultists2.Length)
                 break;
         }
     }

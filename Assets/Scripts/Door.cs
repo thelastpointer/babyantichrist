@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Door : MonoBehaviour
     public bool ActiveByDefault = false;
     public Transform Player;
     public Transform Destination;
+    public UnityEvent OnTransport;
 
     void Start()
     {
@@ -35,5 +37,7 @@ public class Door : MonoBehaviour
     public void PlaceCharacter()
     {
         Player.position = Destination.position;
+        if (OnTransport != null)
+            OnTransport.Invoke();
     }
 }
