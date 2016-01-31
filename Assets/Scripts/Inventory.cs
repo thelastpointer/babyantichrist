@@ -9,10 +9,11 @@ public class Inventory : MonoBehaviour
     public AudioClip CombineSound;
     public GameObject HandIcon;
     public Camera Cam;
-
+    
     Pickup leftHand, rightHand;
     Usable lookAt = null;
     Vector3 leftOriginalScale, rightOriginalScale;
+    GameObject usableActivated;
 
     void Update()
     {
@@ -30,7 +31,21 @@ public class Inventory : MonoBehaviour
                 break;
             }
         }
-        //if (Physics.Raycast(ray, out hit, 1.5f)) lookAt = hit.collider.GetComponent<Usable>();
+
+        // Activate stuff while looking at stuff
+        if (lookAt != null)
+        {
+            if ((usableActivated != null) && (usableActivated != lookAt.ActivateWhileLookAt))
+                usableActivated.SetActive(false);
+            if (lookAt.ActivateWhileLookAt != null)
+            {
+                usableActivated = lookAt.ActivateWhileLookAt;
+                usableActivated.SetActive(true);
+            }
+        }
+        // Disable stuff while not looking at stuff
+        if ((lookAt == null) && (usableActivated != null))
+            usableActivated.SetActive(false);
 
         // UI icon
         HandIcon.SetActive(lookAt != null);

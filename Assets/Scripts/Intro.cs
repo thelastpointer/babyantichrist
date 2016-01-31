@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class Intro : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Intro : MonoBehaviour
     public Transform Door;
 
     public Transform[] Pillars;
+
+    public Door FirstDoor;
 
     float defWalkSpeed;
     int pillarsDone = 0;
@@ -60,7 +63,7 @@ public class Intro : MonoBehaviour
 
         if (pillarsDone == Pillars.Length)
         {
-            //...
+            FirstDoor.Activate();
         }
     }
 
